@@ -1,0 +1,75 @@
+#Calculator
+#Uset enters two numbers then chooses an operation.
+#Program returns the result and asks if they would like complete another
+#calculation, or if they would like to exit.
+
+
+#functions
+
+def multList(numbers):
+    sum_list = 1 
+    x = len(numbers) - 1 
+    while x > -1: 
+        sum_list =  numbers[x] * sum_list
+        x -= 1
+    return(sum_list)
+
+def divList(numbers):
+    x = len(numbers) -1
+    sum_list = numbers[x]
+    while x > -1:
+        sum_list = sum_list/numbers[x-1]
+        x -= 1
+    return (sum_list)
+
+def addList(numbers):
+    x = 0
+    sum_list = 0
+    while x < len(numbers):
+        sum_list = numbers[x] + sum_list
+        x += 1
+    return (sum_list)
+
+def subList(numbers):
+    x = 1
+    sum_list = numbers[0]
+    while x < len(numbers):        
+        sum_list = sum_list - numbers[x] 
+        x += 1
+    return(sum_list)
+
+#standing var
+numbers = []
+y = 5
+inputNum = 'y'
+terminate = 'y'
+
+while terminate != 'n':
+    while inputNum != 'n':
+            opprnds = input('Please enter the numbers you wish to calculate: ')
+            numbers.append(int(opprnds))
+            inputNum = input('Would you like to input another number? y/n')
+
+    operations = input('Would you like to add, subtract, divide, or multiply?')
+
+
+    if operations == 'add':
+        print(addList(numbers))
+
+    elif operations == 'subtract':
+        print(subList(numbers))
+
+    elif operations == 'divide':
+        print(divList(numbers))
+
+    elif operations == 'multiply':
+        print(multList(numbers))
+    
+
+    terminate = input('Would you like to calculate more numbers? y/n')
+    inputNum = 'y'
+    numbers = []
+
+    
+
+
